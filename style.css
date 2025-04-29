@@ -11,6 +11,9 @@ html{
 
 body{
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 p{
@@ -189,6 +192,7 @@ section{
 .title{
   font-size: 3rem;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 #socials-container{
@@ -341,28 +345,78 @@ article .icon{
 
 #projects{
   position: relative;
+  margin-left: 0;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem;
+  padding-left: 0;
 }
 
-.color-container{
+#projects .title {
+  margin-bottom: 3rem;
+}
+
+.color-container {
   border-color: rgb(163, 163, 163);
   background: rgb(250,250,250);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-img{
-  border-radius: 2rem;
-  width: 90%;
-  min-height: 500px;
-  max-height: 600px;
+.color-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.project-title{
-  margin: 1rem;
+.project-img {
+  border-radius: 1rem;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  margin: 0.5rem 0;
   color: black;
+  font-size: 1.1rem;
+  text-align: center;
+  width: 100%;
 }
 
-.project-btn{
+.project-description {
+  color: rgb(85, 85, 85);
+  font-size: 0.85rem;
+  margin: 0.5rem 0;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
+  justify-content: center;
+}
+
+.tech-tag {
+  background: rgb(53, 53, 53);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.project-btn {
   color: black;
   border-color: rgb(163, 163, 163);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
 }
 
 /*contact*/
@@ -371,7 +425,7 @@ article .icon{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 70vh;
+  height: 20vh;
 }
 
 .contact-info-upper-container{
@@ -414,6 +468,81 @@ footer p{
   text-align: center;
 }
 
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  padding: 3rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+.projects-container .details-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 1.2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgb(250,250,250);
+  border-radius: 1.5rem;
+  margin: 0 auto;
+}
+
+.color-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.project-img {
+  border-radius: 1rem;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  margin: 0.6rem 0;
+  color: black;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.project-description {
+  color: rgb(85, 85, 85);
+  font-size: 0.9rem;
+  margin: 0.6rem 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.6rem 0;
+  justify-content: center;
+}
+
+.tech-tag {
+  background: rgb(53, 53, 53);
+  color: white;
+  padding: 0.25rem 0.7rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.project-btn {
+  color: black;
+  border-color: rgb(163, 163, 163);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
 
 /*media queries*/
 
@@ -467,6 +596,28 @@ footer p{
   }
   .about-containers {
     margin-top: 0;
+  }
+  .projects-container {
+    max-width: 900px;
+    gap: 2.5rem;
+    padding: 2.5rem;
+  }
+  
+  .project-img {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .project-img {
+    height: 220px;
   }
 }
 
@@ -522,5 +673,35 @@ footer p{
   }
   .text-container {
     text-align: justify;
+  }
+  .projects-container {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .projects-container .details-container {
+    padding: 1rem;
+  }
+  
+  .project-img {
+    height: 180px;
+  }
+  
+  .project-title {
+    font-size: 1.1rem;
+  }
+  
+  .project-description {
+    font-size: 0.85rem;
+  }
+  
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+  }
+  
+  .project-btn {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
   }
 }
